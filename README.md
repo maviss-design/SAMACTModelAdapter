@@ -65,7 +65,7 @@ pip install samact_model_adapter
 
 API 仕様書は下記をご覧ください。
 
-[https://maviss-design.github.io/samact_model_adapter/](https://maviss-design.github.io/SAMACTModelAdapter/)
+[リンク](https://maviss-design.github.io/SAMACTModelAdapter/)
 
 Quickstart ガイドおよび `api` / `adapter` / `config` / `exceptions` 各モジュールのリファレンスを参照できます。
 
@@ -160,7 +160,7 @@ pip install samact_model_adapter
 
 Please refer to the following for the API documentation:
 
-[https://maviss-design.github.io/samact_model_adapter/](https://maviss-design.github.io/SAMACTModelAdapter/)
+[link](https://maviss-design.github.io/SAMACTModelAdapter/)
 
 It includes the Quickstart guide and the reference for the `api` / `adapter` / `config` / `exceptions` modules, generated from docstrings (Google Style) via Sphinx autodoc.
 
