@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>config モジュール &mdash; SAMACTModelAdapter  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="exceptions モジュール" href="exceptions.html" />
+    <link rel="prev" title="adapter モジュール" href="adapter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SAMACTModelAdapter
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">はじめに</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">モジュール一覧</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api.html">api モジュール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adapter.html">adapter モジュール</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">config モジュール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#samact_model_adapter.config.LearningPropertyConfig"><code class="docutils literal notranslate"><span class="pre">LearningPropertyConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#samact_model_adapter.config.SAMACTConfig"><code class="docutils literal notranslate"><span class="pre">SAMACTConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#samact_model_adapter.config.FitResult"><code class="docutils literal notranslate"><span class="pre">FitResult</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">exceptions モジュール</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SAMACTModelAdapter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">config モジュール</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/config.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-samact_model_adapter.config">
+<span id="config"></span><h1>config モジュール<a class="headerlink" href="#module-samact_model_adapter.config" title="Link to this heading"></a></h1>
+<p>SAMACTConfig / LearningPropertyConfig / FitResult の定義と検証。</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="samact_model_adapter.config.LearningPropertyConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">samact_model_adapter.config.</span></span><span class="sig-name descname"><span class="pre">LearningPropertyConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iota</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#samact_model_adapter.config.LearningPropertyConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>PySAMACT の学習パラメータ設定。</p>
+<p><code class="docutils literal notranslate"><span class="pre">SAMACTConfig.learning_property</span></code> に指定すると、SAMACT モデル構築時に
+PySAMACT の <code class="docutils literal notranslate"><span class="pre">LearningProperty(eta=...,</span> <span class="pre">iota=...,</span> <span class="pre">decayPeriod=...)</span></code> に
+変換して使用される。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eta</strong> (<em>int</em>) – PySAMACT <code class="docutils literal notranslate"><span class="pre">LearningProperty</span></code> の <code class="docutils literal notranslate"><span class="pre">eta</span></code> に対応する値。</p></li>
+<li><p><strong>iota</strong> (<em>int</em>) – PySAMACT <code class="docutils literal notranslate"><span class="pre">LearningProperty</span></code> の <code class="docutils literal notranslate"><span class="pre">iota</span></code> に対応する値。</p></li>
+<li><p><strong>decay_period</strong> (<em>int</em>) – PySAMACT <code class="docutils literal notranslate"><span class="pre">LearningProperty</span></code> の <code class="docutils literal notranslate"><span class="pre">decayPeriod</span></code> に
+対応する値。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="samact_model_adapter.config.SAMACTConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">samact_model_adapter.config.</span></span><span class="sig-name descname"><span class="pre">SAMACTConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tC</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoder_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'rate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_neuron_per_exp_var</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_property</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#samact_model_adapter.config.LearningPropertyConfig" title="samact_model_adapter.config.LearningPropertyConfig"><span class="pre">LearningPropertyConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samlayer_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_scaled_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">torch_seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_output_multiplier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#samact_model_adapter.config.SAMACTConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">compress_from_pytorch()</span></code> / <code class="docutils literal notranslate"><span class="pre">translate_from_pytorch()</span></code> に渡す、
+SAMACT モデルの構築・学習設定。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tC</strong> (<em>int</em>) – PySAMACT <code class="docutils literal notranslate"><span class="pre">Sequential.Compile(tC)</span></code> に渡す値。</p></li>
+<li><p><strong>hidden_units</strong> (<em>int</em>) – SAMLayer 中間層のユニット数。encoder の <code class="docutils literal notranslate"><span class="pre">nUnits</span></code> とは
+区別される。</p></li>
+<li><p><strong>epochs</strong> (<em>int</em>) – PySAMACT <code class="docutils literal notranslate"><span class="pre">Fit()</span></code> に渡す学習エポック数。</p></li>
+<li><p><strong>encoder_type</strong> (<em>str</em>) – 使用する encoder の種類。<code class="docutils literal notranslate"><span class="pre">&quot;rate&quot;</span></code> または
+<code class="docutils literal notranslate"><span class="pre">&quot;neuron_focus&quot;</span></code> のいずれかを指定する。</p></li>
+<li><p><strong>n_neuron_per_exp_var</strong> (<em>int</em><em> | </em><em>None</em>) – <code class="docutils literal notranslate"><span class="pre">encoder_type=&quot;neuron_focus&quot;</span></code> の場合に必須の
+パラメータ。<code class="docutils literal notranslate"><span class="pre">NeuronFocusEncodeLayer</span></code> の <code class="docutils literal notranslate"><span class="pre">nNeuronPerExpVar</span></code> に
+対応する。</p></li>
+<li><p><strong>learning_property</strong> (<a class="reference internal" href="#samact_model_adapter.config.LearningPropertyConfig" title="samact_model_adapter.config.LearningPropertyConfig"><em>samact_model_adapter.config.LearningPropertyConfig</em></a><em> | </em><em>None</em>) – PySAMACT の <code class="docutils literal notranslate"><span class="pre">LearningProperty</span></code> に変換する設定。
+未指定の場合は PySAMACT の既定値を使用する。</p></li>
+<li><p><strong>samlayer_kwargs</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>object</em><em>] </em><em>| </em><em>None</em>) – PySAMACT <code class="docutils literal notranslate"><span class="pre">SAMLayer</span></code> コンストラクタへそのまま渡す
+追加引数。存在しないキーを指定すると
+<code class="docutils literal notranslate"><span class="pre">InvalidSAMACTConfigError</span></code> が送出される。<code class="docutils literal notranslate"><span class="pre">samProperty</span></code> /
+<code class="docutils literal notranslate"><span class="pre">weightDist</span></code> を指定しない場合、PySAMACT 自体の既定値では
+なく、より高い学習精度が得られることを確認済みの値
+(<code class="docutils literal notranslate"><span class="pre">LayerProperty(a=3,</span> <span class="pre">p=0.75)</span></code> / <code class="docutils literal notranslate"><span class="pre">RandomProperty(&quot;kaiming&quot;,</span>
+<span class="pre">&quot;normal&quot;)</span></code>)が既定値として使用される。また、デコーダ直前の
+最終 SAMLayer では、<code class="docutils literal notranslate"><span class="pre">teacherSignalActivate</span></code> を指定しない
+場合に限り PySAMACT の既定値 <code class="docutils literal notranslate"><span class="pre">Step()</span></code> の代わりに <code class="docutils literal notranslate"><span class="pre">Linear()</span></code>
+が使用される。</p></li>
+<li><p><strong>clip_scaled_values</strong> (<em>bool</em>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> の場合、scaler の transform 後の値を
+<code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code> に clip する。</p></li>
+<li><p><strong>torch_seed</strong> (<em>int</em><em> | </em><em>None</em>) – 指定した場合、<code class="docutils literal notranslate"><span class="pre">loader</span></code> / <code class="docutils literal notranslate"><span class="pre">val_loader</span></code> が
+<code class="docutils literal notranslate"><span class="pre">Dataset</span></code> として渡され、内部で <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> を構築する
+際の shuffle 用 <code class="docutils literal notranslate"><span class="pre">torch.Generator</span></code> の seed として使用される。
+<code class="docutils literal notranslate"><span class="pre">loader</span></code> / <code class="docutils literal notranslate"><span class="pre">val_loader</span></code> に <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> を直接渡した
+場合や、<code class="docutils literal notranslate"><span class="pre">dataloader_kwargs</span></code> に <code class="docutils literal notranslate"><span class="pre">generator</span></code> を指定した
+場合は使用されない。</p></li>
+<li><p><strong>n_output_multiplier</strong> (<em>int</em>) – 最終 SAMLayer のユニット数に掛ける倍率。1 以上
+の整数を指定する。分類タスクでは無視される。</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.InvalidSAMACTConfigError" title="samact_model_adapter.exceptions.InvalidSAMACTConfigError"><strong>InvalidSAMACTConfigError</strong></a> – <code class="docutils literal notranslate"><span class="pre">encoder_type</span></code> が不正な場合、
+    <code class="docutils literal notranslate"><span class="pre">encoder_type=&quot;neuron_focus&quot;</span></code> で <code class="docutils literal notranslate"><span class="pre">n_neuron_per_exp_var</span></code> が
+    未指定の場合、<code class="docutils literal notranslate"><span class="pre">n_output_multiplier</span></code> が 1 未満の場合に送出される。</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="samact_model_adapter.config.FitResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">samact_model_adapter.config.</span></span><span class="sig-name descname"><span class="pre">FitResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elapsed_seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mse_per_epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accuracy_per_epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#samact_model_adapter.config.FitResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>学習結果のサマリ。<code class="docutils literal notranslate"><span class="pre">SAMACTModelAdapter.fit_result</span></code> に保持される。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epochs</strong> (<em>int</em>) – 学習に使用したエポック数。</p></li>
+<li><p><strong>elapsed_seconds</strong> (<em>float</em>) – 学習にかかった時間(秒)。</p></li>
+<li><p><strong>mse_per_epoch</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) – 特徴量圧縮モードおよびスタンドアロン回帰で使用する、
+エポックごとの学習データに対する MSE のリスト。それ以外の
+場合は <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p></li>
+<li><p><strong>accuracy_per_epoch</strong> (<em>list</em><em>[</em><em>float</em><em>] </em><em>| </em><em>None</em>) – スタンドアロン分類で使用する、エポックごとの
+学習データに対する accuracy のリスト。それ以外の場合は
+<code class="docutils literal notranslate"><span class="pre">None</span></code>。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="adapter.html" class="btn btn-neutral float-left" title="adapter モジュール" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="exceptions モジュール" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 Maviss Design Co. Ltd..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

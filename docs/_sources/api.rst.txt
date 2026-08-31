@@ -1,0 +1,7 @@
+====================
+api モジュール
+====================
+
+.. automodule:: samact_model_adapter.api
+   :members:
+   :show-inheritance:

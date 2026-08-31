@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quickstart &mdash; SAMACTModelAdapter  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="api モジュール" href="api.html" />
+    <link rel="prev" title="SAMACTModelAdapter API リファレンス" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SAMACTModelAdapter
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">はじめに</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">動作要件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">最も簡単な使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">学習結果の保存・読み込み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">元モデルとの比較評価</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">次のステップ</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">モジュール一覧</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">api モジュール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adapter.html">adapter モジュール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config モジュール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">exceptions モジュール</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SAMACTModelAdapter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h1>
+<p>このドキュメントは <code class="docutils literal notranslate"><span class="pre">samact_model_adapter</span></code> (SAMACT Model Adapter) を
+初めて使う人向けの入門ガイドです。<code class="docutils literal notranslate"><span class="pre">translate_from_pytorch</span></code> /
+<code class="docutils literal notranslate"><span class="pre">compress_from_pytorch</span></code> など各関数の詳細な引数・例外・戻り値は
+<a class="reference internal" href="api.html"><span class="doc">api モジュール</span></a> を参照してください。</p>
+<section id="id1">
+<h2>概要<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">samact_model_adapter</span></code> は、学習済みモデル(現バージョンでは PyTorch モデルを想定。
+将来的に対応フレームワークが増える可能性があります)を元に、同じ振る舞いをすることを
+目指して <a class="reference external" href="https://github.com/maviss-design/SAMACT">PySAMACT</a> (SAMACT Framework) の
+モデルを再学習するためのアダプタ層です。パラメータをそのまま移し替えるのではなく、
+元モデルの入出力(または中間層の出力)を教師データとして SAMACT モデル側を学習し直す
+点が特徴です。主に次の 2 つのモードを提供します。</p>
+<ul class="simple">
+<li><p><strong>standalone モード</strong>: 元モデルと同じ入出力形状になるよう SAMACT モデルを
+一から学習する(分類 / 回帰)。</p></li>
+<li><p><strong>compression モード</strong>: 既存モデルの中間層(ボトルネック層)の出力を教師信号として、
+特徴量圧縮用の SAMACT モデルを学習する。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>動作要件<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Python 3.12 以上</p></li>
+<li><p>元になる PyTorch モデルが <code class="docutils literal notranslate"><span class="pre">nn.Linear</span></code> 層を 2 層以上持つこと
+(先頭層の入力次元・末尾層の出力次元を抽出して使用するため)。
+<code class="docutils literal notranslate"><span class="pre">nn.Conv*</span></code> / <code class="docutils literal notranslate"><span class="pre">nn.RNN</span></code> / <code class="docutils literal notranslate"><span class="pre">nn.LSTM</span></code> / <code class="docutils literal notranslate"><span class="pre">nn.GRU</span></code> /
+Attention・Transformer 系のレイヤーを含むモデルは非対応です。</p></li>
+<li><p>依存パッケージ</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">torch</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">samact</span></code> (PySAMACT)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h2>インストール<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>samact_model_adapter
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>最も簡単な使い方<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>以下は、学習済みの PyTorch 分類モデルを元に、同じ振る舞いをする SAMACT モデルを
+standalone モードで学習し、推論するまでの最小例です。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">TensorDataset</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">samact_model_adapter.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">translate_from_pytorch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">samact_model_adapter.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAMACTConfig</span>
+
+<span class="c1"># 1. 元になる PyTorch モデル(nn.Linear を2層以上持つこと)</span>
+<span class="n">input_dim</span><span class="p">,</span> <span class="n">num_classes</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. 学習データ(DataLoader または Dataset)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="p">(</span><span class="mi">6</span><span class="p">,))</span>
+<span class="n">loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">TensorDataset</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># 3. SAMACT 側の学習設定(省略時はデフォルト値が使われる)</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">SAMACTConfig</span><span class="p">(</span><span class="n">tC</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">hidden_units</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">torch_seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 4. 学習: 元モデルと同じ振る舞いを目指して SAMACT モデルを学習する</span>
+<span class="n">adapter</span> <span class="o">=</span> <span class="n">translate_from_pytorch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loader</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">&quot;classification&quot;</span><span class="p">)</span>
+
+<span class="c1"># 5. 推論</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>  <span class="c1"># 1件なら int、複数件なら np.ndarray</span>
+</pre></div>
+</div>
+<p>特徴量圧縮モードで使う場合は、<code class="docutils literal notranslate"><span class="pre">translate_from_pytorch</span></code> の代わりに
+<code class="docutils literal notranslate"><span class="pre">compress_from_pytorch</span></code> を使用します。圧縮対象の中間層(ボトルネック層)は
+<code class="docutils literal notranslate"><span class="pre">bottleneck_layer_name</span></code> で明示的に指定できますが、省略した場合は出力層を除く
+<code class="docutils literal notranslate"><span class="pre">nn.Linear</span></code> 層のうち出力次元が最小の層が自動的に選択されます。</p>
+</section>
+<section id="id5">
+<h2>学習結果の保存・読み込み<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>学習済みの adapter は artifact ディレクトリとして保存・復元できます。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">samact_model_adapter.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_from_artifact</span>
+
+<span class="n">adapter</span><span class="o">.</span><span class="n">save_artifact</span><span class="p">(</span><span class="s2">&quot;path/to/artifact_dir&quot;</span><span class="p">)</span>
+
+<span class="n">restored</span> <span class="o">=</span> <span class="n">load_from_artifact</span><span class="p">(</span><span class="s2">&quot;path/to/artifact_dir&quot;</span><span class="p">)</span>
+<span class="n">restored</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">save_artifact()</span></code> は保存先ディレクトリが既に存在する場合、既定
+(<code class="docutils literal notranslate"><span class="pre">overwrite=False</span></code>)では <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code> を送出します。上書きする
+場合は <code class="docutils literal notranslate"><span class="pre">adapter.save_artifact(path,</span> <span class="pre">overwrite=True)</span></code> を指定してください。</p>
+</div>
+</section>
+<section id="id6">
+<h2>元モデルとの比較評価<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<p>元になった PyTorch モデルと、学習後の SAMACT モデルの予測から
+精度指標(accuracy / MSE / MAE など)を確認できます。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">loader</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>  <span class="c1"># 例: {&quot;pytorch_accuracy&quot;: ..., &quot;samact_accuracy&quot;: ...}</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h2>次のステップ<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>学習設定の各項目(<code class="docutils literal notranslate"><span class="pre">SAMACTConfig</span></code> など)の詳細は <a class="reference internal" href="config.html"><span class="doc">config モジュール</span></a> を
+参照してください。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAMACTModelAdapter</span></code> が保持する属性・メソッドの詳細は <a class="reference internal" href="adapter.html"><span class="doc">adapter モジュール</span></a> を
+参照してください。</p></li>
+<li><p>送出される例外の一覧と発生条件は <a class="reference internal" href="exceptions.html"><span class="doc">exceptions モジュール</span></a> を参照してください。</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="SAMACTModelAdapter API リファレンス" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="api モジュール" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 Maviss Design Co. Ltd..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

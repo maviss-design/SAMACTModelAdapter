@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>api モジュール &mdash; SAMACTModelAdapter  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="adapter モジュール" href="adapter.html" />
+    <link rel="prev" title="Quickstart" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SAMACTModelAdapter
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">はじめに</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">モジュール一覧</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">api モジュール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#samact_model_adapter.api.load_from_artifact"><code class="docutils literal notranslate"><span class="pre">load_from_artifact()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#samact_model_adapter.api.translate_from_pytorch"><code class="docutils literal notranslate"><span class="pre">translate_from_pytorch()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#samact_model_adapter.api.compress_from_pytorch"><code class="docutils literal notranslate"><span class="pre">compress_from_pytorch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="adapter.html">adapter モジュール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config モジュール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">exceptions モジュール</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SAMACTModelAdapter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">api モジュール</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-samact_model_adapter.api">
+<span id="api"></span><h1>api モジュール<a class="headerlink" href="#module-samact_model_adapter.api" title="Link to this heading"></a></h1>
+<p>公開ファクトリ関数。</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="samact_model_adapter.api.load_from_artifact">
+<span class="sig-prename descclassname"><span class="pre">samact_model_adapter.api.</span></span><span class="sig-name descname"><span class="pre">load_from_artifact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">artifact_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="adapter.html#samact_model_adapter.adapter.SAMACTModelAdapter" title="samact_model_adapter.adapter.SAMACTModelAdapter"><span class="pre">SAMACTModelAdapter</span></a></span></span><a class="headerlink" href="#samact_model_adapter.api.load_from_artifact" title="Link to this definition"></a></dt>
+<dd><p>artifact directory から <code class="docutils literal notranslate"><span class="pre">SAMACTModelAdapter</span></code> を復元する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>artifact_path</strong> – <code class="docutils literal notranslate"><span class="pre">SAMACTModelAdapter.save_artifact()</span></code> で保存した
+artifact directory のパス。</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>復元された <code class="docutils literal notranslate"><span class="pre">SAMACTModelAdapter</span></code>。</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.ArtifactLoadError" title="samact_model_adapter.exceptions.ArtifactLoadError"><strong>ArtifactLoadError</strong></a> – <code class="docutils literal notranslate"><span class="pre">artifact_path</span></code> が存在しない場合、
+    <code class="docutils literal notranslate"><span class="pre">metadata.json</span></code> が存在しない、または JSON として読み込めない
+    場合、metadata に記載された必須ファイルが存在しない場合、
+    <code class="docutils literal notranslate"><span class="pre">mode</span></code> / <code class="docutils literal notranslate"><span class="pre">task</span></code> に応じた必須 metadata が不足している場合、
+    SAMACT モデルまたは scaler の復元に失敗した場合、metadata と
+    実ファイルの整合性が取れない場合。</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>artifact のロードには pickle を使用するため、信頼できる artifact
+のみを読み込むこと。</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="samact_model_adapter.api.translate_from_pytorch">
+<span class="sig-prename descclassname"><span class="pre">samact_model_adapter.api.</span></span><span class="sig-name descname"><span class="pre">translate_from_pytorch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataLoader</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dataset</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="config.html#samact_model_adapter.config.SAMACTConfig" title="samact_model_adapter.config.SAMACTConfig"><span class="pre">SAMACTConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'classification'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataLoader</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dataset</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_getter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_getter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="adapter.html#samact_model_adapter.adapter.SAMACTModelAdapter" title="samact_model_adapter.adapter.SAMACTModelAdapter"><span class="pre">SAMACTModelAdapter</span></a></span></span><a class="headerlink" href="#samact_model_adapter.api.translate_from_pytorch" title="Link to this definition"></a></dt>
+<dd><p>スタンドアロンモードで SAMACT モデルを構築・学習する。</p>
+<p>PyTorch モデルの先頭 <code class="docutils literal notranslate"><span class="pre">nn.Linear</span></code> から入力次元、末尾 <code class="docutils literal notranslate"><span class="pre">nn.Linear</span></code> から
+出力次元のみを抽出し、同じ入出力次元を持つ SAMACT モデルを新規に構築・
+学習する。PyTorch モデルの重み・中間構造・活性化関数は SAMACT へ変換
+されない。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – 入出力次元の抽出元となる PyTorch モデル。</p></li>
+<li><p><strong>loader</strong> – 学習データ。<code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> または <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>。</p></li>
+<li><p><strong>config</strong> – SAMACT モデルの構築・学習設定。未指定の場合は既定値の
+<code class="docutils literal notranslate"><span class="pre">SAMACTConfig</span></code> を使用する。</p></li>
+<li><p><strong>task</strong> – <code class="docutils literal notranslate"><span class="pre">&quot;classification&quot;</span></code> または <code class="docutils literal notranslate"><span class="pre">&quot;regression&quot;</span></code>。</p></li>
+<li><p><strong>val_loader</strong> – <code class="docutils literal notranslate"><span class="pre">IterableDataset</span></code> 検証のためだけに使用される。
+エポックごとの検証データ評価には使用されない。</p></li>
+<li><p><strong>input_getter</strong> – batch から入力を抽出する関数。未指定時は batch を
+<code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> とみなし <code class="docutils literal notranslate"><span class="pre">batch[0]</span></code> を入力として扱う。</p></li>
+<li><p><strong>target_getter</strong> – batch から target を抽出する関数。未指定時は
+batch を <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> とみなし <code class="docutils literal notranslate"><span class="pre">batch[1]</span></code> を target として
+扱う。</p></li>
+<li><p><strong>dataloader_kwargs</strong> – <code class="docutils literal notranslate"><span class="pre">loader</span></code> または <code class="docutils literal notranslate"><span class="pre">val_loader</span></code> が <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>
+の場合に、内部で <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> を構築する際のキーワード引数。</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">mode=&quot;standalone&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">task</span></code> は指定どおりの、学習済み
+<code class="docutils literal notranslate"><span class="pre">SAMACTModelAdapter</span></code>。</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.UnsupportedArchitectureError" title="samact_model_adapter.exceptions.UnsupportedArchitectureError"><strong>UnsupportedArchitectureError</strong></a> – <code class="docutils literal notranslate"><span class="pre">model</span></code> に未対応レイヤーが含まれる
+    場合、または Linear 層が 2 層未満で入出力次元を抽出できない
+    場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.UnsupportedDatasetError" title="samact_model_adapter.exceptions.UnsupportedDatasetError"><strong>UnsupportedDatasetError</strong></a> – <code class="docutils literal notranslate"><span class="pre">loader</span></code> または <code class="docutils literal notranslate"><span class="pre">val_loader</span></code> が
+    <code class="docutils literal notranslate"><span class="pre">IterableDataset</span></code>、または <code class="docutils literal notranslate"><span class="pre">IterableDataset</span></code> ベースの
+    <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> である場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.UnsupportedInputShapeError" title="samact_model_adapter.exceptions.UnsupportedInputShapeError"><strong>UnsupportedInputShapeError</strong></a> – 学習データから抽出した入力が 3 次元
+    以上である場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.InputDimensionMismatchError" title="samact_model_adapter.exceptions.InputDimensionMismatchError"><strong>InputDimensionMismatchError</strong></a> – 学習データから抽出した入力の次元数が
+    抽出済みの入力次元と一致しない場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.UnsupportedBatchFormatError" title="samact_model_adapter.exceptions.UnsupportedBatchFormatError"><strong>UnsupportedBatchFormatError</strong></a> – <code class="docutils literal notranslate"><span class="pre">input_getter</span></code> / <code class="docutils literal notranslate"><span class="pre">target_getter</span></code>
+    未指定時に batch を既定形式 <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> として解釈できない
+    場合、またはそれらの実行に失敗した場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.InvalidSAMACTConfigError" title="samact_model_adapter.exceptions.InvalidSAMACTConfigError"><strong>InvalidSAMACTConfigError</strong></a> – <code class="docutils literal notranslate"><span class="pre">task</span></code> が <code class="docutils literal notranslate"><span class="pre">&quot;classification&quot;</span></code> /
+    <code class="docutils literal notranslate"><span class="pre">&quot;regression&quot;</span></code> 以外の場合、<code class="docutils literal notranslate"><span class="pre">config.samlayer_kwargs</span></code> に
+    PySAMACT <code class="docutils literal notranslate"><span class="pre">SAMLayer</span></code> コンストラクタに存在しないキーが指定
+    された場合。<code class="docutils literal notranslate"><span class="pre">config</span></code> 自体の値の妥当性は <code class="docutils literal notranslate"><span class="pre">SAMACTConfig</span></code>
+    のコンストラクタで検証済みであるため、本関数の実行中に
+    <code class="docutils literal notranslate"><span class="pre">config</span></code> の値が原因でこの例外が送出されることはない。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="samact_model_adapter.api.compress_from_pytorch">
+<span class="sig-prename descclassname"><span class="pre">samact_model_adapter.api.</span></span><span class="sig-name descname"><span class="pre">compress_from_pytorch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Module</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataLoader</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dataset</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="config.html#samact_model_adapter.config.SAMACTConfig" title="samact_model_adapter.config.SAMACTConfig"><span class="pre">SAMACTConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottleneck_layer_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_loader</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataLoader</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dataset</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_getter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="adapter.html#samact_model_adapter.adapter.SAMACTModelAdapter" title="samact_model_adapter.adapter.SAMACTModelAdapter"><span class="pre">SAMACTModelAdapter</span></a></span></span><a class="headerlink" href="#samact_model_adapter.api.compress_from_pytorch" title="Link to this definition"></a></dt>
+<dd><p>特徴量圧縮モードで SAMACT モデルを構築・学習する。</p>
+<p>PyTorch モデルの入力からボトルネック層出力までの前段処理を、SAMACT
+モデルで近似するよう回帰学習する。学習後の adapter の <code class="docutils literal notranslate"><span class="pre">predict()</span></code> は
+最終タスクの予測ではなく、SAMACT が再現したボトルネック表現を返す。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – ボトルネック層を検出・使用する PyTorch モデル。</p></li>
+<li><p><strong>loader</strong> – 学習データ。<code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> または <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>。</p></li>
+<li><p><strong>config</strong> – SAMACT モデルの構築・学習設定。未指定の場合は既定値の
+<code class="docutils literal notranslate"><span class="pre">SAMACTConfig</span></code> を使用する。</p></li>
+<li><p><strong>bottleneck_layer_name</strong> – 使用するボトルネック層名。未指定の場合、
+出力層候補を除いた <code class="docutils literal notranslate"><span class="pre">nn.Linear</span></code> 層のうち <code class="docutils literal notranslate"><span class="pre">out_features</span></code> が
+最小の層を自動検出する。</p></li>
+<li><p><strong>val_loader</strong> – <code class="docutils literal notranslate"><span class="pre">IterableDataset</span></code> 検証のためだけに使用される。
+エポックごとの検証データ評価には使用されない。</p></li>
+<li><p><strong>input_getter</strong> – batch から入力を抽出する関数。未指定時は batch を
+<code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> とみなし <code class="docutils literal notranslate"><span class="pre">batch[0]</span></code> を入力として扱う。</p></li>
+<li><p><strong>dataloader_kwargs</strong> – <code class="docutils literal notranslate"><span class="pre">loader</span></code> または <code class="docutils literal notranslate"><span class="pre">val_loader</span></code> が <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>
+の場合に、内部で <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> を構築する際のキーワード引数。</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">mode=&quot;compression&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">task=&quot;compression&quot;</span></code> の、学習済み
+<code class="docutils literal notranslate"><span class="pre">SAMACTModelAdapter</span></code>。</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.UnsupportedArchitectureError" title="samact_model_adapter.exceptions.UnsupportedArchitectureError"><strong>UnsupportedArchitectureError</strong></a> – <code class="docutils literal notranslate"><span class="pre">model</span></code> に未対応レイヤーが含まれる
+    場合。<code class="docutils literal notranslate"><span class="pre">bottleneck_layer_name</span></code> を手動指定した場合も検証
+    される。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.BottleneckDetectionError" title="samact_model_adapter.exceptions.BottleneckDetectionError"><strong>BottleneckDetectionError</strong></a> – <code class="docutils literal notranslate"><span class="pre">bottleneck_layer_name</span></code> 未指定時に
+    ボトルネック候補が存在しない場合、指定した層名が <code class="docutils literal notranslate"><span class="pre">model</span></code>
+    に存在しない場合、指定した層が <code class="docutils literal notranslate"><span class="pre">nn.Linear</span></code> ではない場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.UnsupportedDatasetError" title="samact_model_adapter.exceptions.UnsupportedDatasetError"><strong>UnsupportedDatasetError</strong></a> – <code class="docutils literal notranslate"><span class="pre">loader</span></code> または <code class="docutils literal notranslate"><span class="pre">val_loader</span></code> が
+    <code class="docutils literal notranslate"><span class="pre">IterableDataset</span></code>、または <code class="docutils literal notranslate"><span class="pre">IterableDataset</span></code> ベースの
+    <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> である場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.UnsupportedInputShapeError" title="samact_model_adapter.exceptions.UnsupportedInputShapeError"><strong>UnsupportedInputShapeError</strong></a> – 学習データから抽出した入力が 3 次元
+    以上である場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.InputDimensionMismatchError" title="samact_model_adapter.exceptions.InputDimensionMismatchError"><strong>InputDimensionMismatchError</strong></a> – 学習データから抽出した入力の次元数が
+    <code class="docutils literal notranslate"><span class="pre">model</span></code> から抽出した入力次元と一致しない場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.UnsupportedBatchFormatError" title="samact_model_adapter.exceptions.UnsupportedBatchFormatError"><strong>UnsupportedBatchFormatError</strong></a> – <code class="docutils literal notranslate"><span class="pre">input_getter</span></code> 未指定時に batch を
+    既定形式 <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> として解釈できない場合、または
+    <code class="docutils literal notranslate"><span class="pre">input_getter</span></code> の実行に失敗した場合。</p></li>
+<li><p><a class="reference internal" href="exceptions.html#samact_model_adapter.exceptions.InvalidSAMACTConfigError" title="samact_model_adapter.exceptions.InvalidSAMACTConfigError"><strong>InvalidSAMACTConfigError</strong></a> – <code class="docutils literal notranslate"><span class="pre">config.samlayer_kwargs</span></code> に PySAMACT
+    <code class="docutils literal notranslate"><span class="pre">SAMLayer</span></code> コンストラクタに存在しないキーが指定された場合。
+    <code class="docutils literal notranslate"><span class="pre">config</span></code> 自体の値の妥当性は <code class="docutils literal notranslate"><span class="pre">SAMACTConfig</span></code> のコンスト
+    ラクタで検証済みであるため、本関数の実行中に <code class="docutils literal notranslate"><span class="pre">config</span></code> の
+    値が原因でこの例外が送出されることはない。</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adapter.html" class="btn btn-neutral float-right" title="adapter モジュール" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 Maviss Design Co. Ltd..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

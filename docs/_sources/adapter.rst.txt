@@ -1,0 +1,10 @@
+========================
+adapter モジュール
+========================
+
+.. automodule:: samact_model_adapter.adapter
+   :members:
+   :show-inheritance:
+   :exclude-members: samact_model, mode, task, input_dim, input_scaler,
+                      target_scaler, config, metadata, fit_result,
+                      output_dim, bottleneck_layer_name, bottleneck_dim

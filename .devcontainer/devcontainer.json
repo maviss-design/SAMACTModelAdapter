@@ -1,0 +1,29 @@
+{
+  "name": "SAMACTModelAdapter CUDA DevContainer",
+
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+
+  "runArgs": [
+    "--gpus",
+    "all"
+  ],
+
+  "postCreateCommand": "pip install --break-system-packages -e '.[dev]'",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}

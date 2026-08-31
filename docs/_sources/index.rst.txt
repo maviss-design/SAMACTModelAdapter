@@ -1,0 +1,28 @@
+====================================
+SAMACTModelAdapter API リファレンス
+====================================
+
+``samact_model_adapter`` は、学習済みモデルを元に同じ振る舞いをすることを
+目指して PySAMACT (SAMACT Framework) のモデルを再学習するためのアダプタ層です。
+
+.. toctree::
+   :maxdepth: 2
+   :caption: はじめに
+
+   quickstart
+
+.. toctree::
+   :maxdepth: 2
+   :caption: モジュール一覧
+
+   api
+   adapter
+   config
+   exceptions
+
+Indices and tables
+===================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

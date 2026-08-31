@@ -1,0 +1,129 @@
+==========
+Quickstart
+==========
+
+このドキュメントは ``samact_model_adapter`` (SAMACT Model Adapter) を
+初めて使う人向けの入門ガイドです。``translate_from_pytorch`` /
+``compress_from_pytorch`` など各関数の詳細な引数・例外・戻り値は
+:doc:`api` を参照してください。
+
+概要
+====
+
+``samact_model_adapter`` は、学習済みモデル(現バージョンでは PyTorch モデルを想定。
+将来的に対応フレームワークが増える可能性があります)を元に、同じ振る舞いをすることを
+目指して `PySAMACT <https://github.com/maviss-design/SAMACT>`_ (SAMACT Framework) の
+モデルを再学習するためのアダプタ層です。パラメータをそのまま移し替えるのではなく、
+元モデルの入出力(または中間層の出力)を教師データとして SAMACT モデル側を学習し直す
+点が特徴です。主に次の 2 つのモードを提供します。
+
+- **standalone モード**: 元モデルと同じ入出力形状になるよう SAMACT モデルを
+  一から学習する(分類 / 回帰)。
+- **compression モード**: 既存モデルの中間層(ボトルネック層)の出力を教師信号として、
+  特徴量圧縮用の SAMACT モデルを学習する。
+
+動作要件
+========
+
+- Python 3.12 以上
+- 元になる PyTorch モデルが ``nn.Linear`` 層を 2 層以上持つこと
+  (先頭層の入力次元・末尾層の出力次元を抽出して使用するため)。
+  ``nn.Conv*`` / ``nn.RNN`` / ``nn.LSTM`` / ``nn.GRU`` /
+  Attention・Transformer 系のレイヤーを含むモデルは非対応です。
+- 依存パッケージ
+
+  - ``torch``
+  - ``numpy``
+  - ``scikit-learn``
+  - ``samact`` (PySAMACT)
+
+インストール
+============
+
+.. code-block:: bash
+
+   python -m pip install samact_model_adapter
+
+
+最も簡単な使い方
+================
+
+以下は、学習済みの PyTorch 分類モデルを元に、同じ振る舞いをする SAMACT モデルを
+standalone モードで学習し、推論するまでの最小例です。
+
+.. code-block:: python
+
+   import torch
+   from torch import nn
+   from torch.utils.data import DataLoader, TensorDataset
+
+   from samact_model_adapter.api import translate_from_pytorch
+   from samact_model_adapter.config import SAMACTConfig
+
+   # 1. 元になる PyTorch モデル(nn.Linear を2層以上持つこと)
+   input_dim, num_classes = 3, 2
+   model = nn.Sequential(
+       nn.Linear(input_dim, 5),
+       nn.ReLU(),
+       nn.Linear(5, num_classes),
+   )
+
+   # 2. 学習データ(DataLoader または Dataset)
+   x = torch.rand(6, input_dim)
+   y = torch.randint(0, num_classes, (6,))
+   loader = DataLoader(TensorDataset(x, y), batch_size=2)
+
+   # 3. SAMACT 側の学習設定(省略時はデフォルト値が使われる)
+   config = SAMACTConfig(tC=4, hidden_units=4, epochs=2, torch_seed=0)
+
+   # 4. 学習: 元モデルと同じ振る舞いを目指して SAMACT モデルを学習する
+   adapter = translate_from_pytorch(model, loader, config=config, task="classification")
+
+   # 5. 推論
+   pred = adapter.predict(torch.rand(1, input_dim).numpy())
+   print(pred)  # 1件なら int、複数件なら np.ndarray
+
+特徴量圧縮モードで使う場合は、``translate_from_pytorch`` の代わりに
+``compress_from_pytorch`` を使用します。圧縮対象の中間層(ボトルネック層)は
+``bottleneck_layer_name`` で明示的に指定できますが、省略した場合は出力層を除く
+``nn.Linear`` 層のうち出力次元が最小の層が自動的に選択されます。
+
+学習結果の保存・読み込み
+========================
+
+学習済みの adapter は artifact ディレクトリとして保存・復元できます。
+
+.. code-block:: python
+
+   from samact_model_adapter.api import load_from_artifact
+
+   adapter.save_artifact("path/to/artifact_dir")
+
+   restored = load_from_artifact("path/to/artifact_dir")
+   restored.predict(torch.rand(1, input_dim).numpy())
+
+.. note::
+
+   ``save_artifact()`` は保存先ディレクトリが既に存在する場合、既定
+   (``overwrite=False``)では ``FileExistsError`` を送出します。上書きする
+   場合は ``adapter.save_artifact(path, overwrite=True)`` を指定してください。
+
+元モデルとの比較評価
+====================
+
+元になった PyTorch モデルと、学習後の SAMACT モデルの予測から
+精度指標(accuracy / MSE / MAE など)を確認できます。
+
+.. code-block:: python
+
+   metrics = adapter.evaluate(model, loader)
+   print(metrics)  # 例: {"pytorch_accuracy": ..., "samact_accuracy": ...}
+
+次のステップ
+============
+
+- 学習設定の各項目(``SAMACTConfig`` など)の詳細は :doc:`config` を
+  参照してください。
+- ``SAMACTModelAdapter`` が保持する属性・メソッドの詳細は :doc:`adapter` を
+  参照してください。
+- 送出される例外の一覧と発生条件は :doc:`exceptions` を参照してください。

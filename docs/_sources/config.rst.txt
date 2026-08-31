@@ -1,0 +1,12 @@
+=======================
+config モジュール
+=======================
+
+.. automodule:: samact_model_adapter.config
+   :members:
+   :show-inheritance:
+   :exclude-members: eta, iota, decay_period, tC, hidden_units, epochs,
+                      encoder_type, n_neuron_per_exp_var, learning_property,
+                      samlayer_kwargs, clip_scaled_values, torch_seed,
+                      n_output_multiplier, elapsed_seconds, mse_per_epoch,
+                      accuracy_per_epoch

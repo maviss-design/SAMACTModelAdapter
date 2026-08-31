@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "samact_model_adapter"
+version = "1.0.0"
+description = "Adapter layer that bridges PyTorch models with the PySAMACT framework."
+requires-python = ">=3.12"
+readme = "README.md"
+license = { file = "LICENSE" }
+dependencies = [
+    "torch",
+    "numpy",
+    "scikit-learn",
+    "samact",
+]
+
+authors = [
+  { name = "Hiroki Nishihara", email = "hiroki.nishihara@maviss-design.com" },
+  { name = "Ayumu Okii", email = "ayumu.okii@maviss-design.com" },
+  { name = "Keita Ando", email = "keita.ando@maviss-design.com" }
+]
+
+
+[project.urls]
+Homepage = "https://maviss-design.com/ai-solution/"
+Repository = "https://github.com/maviss-design/SAMACTModelAdapter"
+Issues = "https://github.com/maviss-design/SAMACTModelAdapter/issues"
+Documentation = "https://maviss-design.github.io/SAMACTModelAdapter/"
+
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "jupytext",
+    "ipykernel",
+    "nbconvert",
+    "pylint",
+    "mypy",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["samact_model_adapter"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-ra"
+
+# ---- pylint (実装コード + テストコードを対象) ----
+[tool.pylint.main]
+py-version = "3.12"
+
+[tool.pylint.format]
+max-line-length = 100
+
+[tool.pylint."messages control"]
+disable = [
+    "missing-module-docstring",
+    "missing-class-docstring",     
+    "missing-function-docstring",  
+    "too-few-public-methods",      
+    "duplicate-code",              
+]
+
+# ---- mypy (実装コードのみを対象。tests は対象外) ----
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true

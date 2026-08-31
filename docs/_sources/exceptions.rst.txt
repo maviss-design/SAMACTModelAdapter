@@ -1,0 +1,7 @@
+===========================
+exceptions モジュール
+===========================
+
+.. automodule:: samact_model_adapter.exceptions
+   :members:
+   :show-inheritance:
